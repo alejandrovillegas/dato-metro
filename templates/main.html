@@ -1,0 +1,146 @@
+<ion-view hide-back-button="true" view-title="Awesome">
+  <ion-content class="padding">
+    <div class="img-container">
+      <div class="img-logo-datometro">
+        <!--<img class="logo-datometro" src="/img/elementos-01.svg">-->
+        <img class="logo-datometro" src="file:///android_asset/www/img/elementos-01.svg">
+      </div>
+
+      <div class="img-logo-movil">
+        <!--<img class="logo-movil" src="img/movil-exito-logo-cabecera.png">-->
+        <img class="logo-datometro" src="file:///android_asset/www/img/movil-exito-logo-cabecera.png">
+      </div>
+    </div>
+
+
+      <div ng-controller="TabsController as tabs">
+        <ion-list>
+            <ul class="nav">
+              <li ng-class="{ active:tabs.tab === 1 }"><a ng-click="tabs.selectTab(1)"><i ng-class="{'selected': tabs.tab === 1}" class="nav-slider-1"></i></a></li>
+              <li ng-class="{ active:tabs.tab === 2 }"><a ng-click="tabs.selectTab(2)"><i ng-class="{'selected': tabs.tab === 2}" class="nav-slider-2"></i></a></li>
+              <li ng-class="{ active:tabs.tab === 3 }"><a ng-click="tabs.selectTab(3)"><i ng-class="{'selected': tabs.tab === 3}" class="nav-slider-3"></i></a></li>
+              <li ng-class="{ active:tabs.tab === 4 }"><a ng-click="tabs.selectTab(4)"><i ng-class="{'selected': tabs.tab === 4}" class="nav-slider-4"></i></a></li>
+              <li ng-class="{ active:tabs.tab === 5 }"><a ng-click="tabs.selectTab(5)"><i ng-class="{'selected': tabs.tab === 5}" class="nav-slider-5"></i></a></li>
+              <li ng-class="{ active:tabs.tab === 6 }"><a ng-click="tabs.selectTab(6)"><i ng-class="{'selected': tabs.tab === 6}" class="nav-slider-6"></i></a></li>
+              <li ng-class="{ active:tabs.tab === 7 }"><a ng-click="tabs.selectTab(7)"><i ng-class="{'selected': tabs.tab === 7}" class="nav-slider-7"></i></a></li>
+            </ul>
+          <div class="list-range">
+            <p><span class="text-legend-tittle-big">Calcula cuánto</span><br>
+            <span class="text-legend-tittle">te podrías consumir de tu plan:</span></p>
+
+            <div ng-show="tabs.tab === 1">
+              <i class="img-slider-1 expandOpen"></i>
+              <div class="margin-bottom"><span class="text-legend">Horas redes Sociales</span></div>
+                <div class="item range">
+                  <input type="range" name="volume" min="0" max="100"  ng-change="sumaChanged()" ng-model="data1.volume">
+                </div>
+              <div class="range-number" ng-bind="data1.volume"></div>
+              <span class="range-number-descript">Horas</span>
+              <div class="btn-container">
+              <div ng-class="{ active:tabs.tab === 2 }" class="btn-next-container" ng-click="tabs.selectTab(2)"><a  class="btn-next">Siguiente</a></div>
+              </div>
+            </div>
+
+          <div ng-show="tabs.tab === 2">
+            <i class="img-slider-2 expandOpen"></i>
+            <div class="margin-bottom"><span class="text-legend">Horas WhatsApp y otros</span></div>
+            <div class="item range">
+              <input type="range" name="volume" min="0" max="800"  ng-change="sumaChanged()" ng-model="data2.volume">
+            </div>
+            <div class="range-number" ng-bind="data2.volume"></div>
+            <span class="range-number-descript">Horas</span>
+            <div class="btn-container">
+              <div ng-class="{ active:tabs.tab === 1 }" class="btn-back-container" ng-click="tabs.selectTab(1)"><a  class="btn-back">Atrás</a></div>
+              <div ng-class="{ active:tabs.tab === 3 }" class="btn-next-container" ng-click="tabs.selectTab(3)"><a  class="btn-next">Siguiente</a></div>
+            </div>
+          </div>
+
+          <div ng-show="tabs.tab === 3">
+            <i class="img-slider-3 expandOpen"></i>
+          <div class="margin-bottom"><span class="text-legend">Horas Streaming música</span></div>
+            <div class="item range">
+              <input type="range" name="volume" min="0" max="100"  ng-change="sumaChanged()" ng-model="data3.volume">
+            </div>
+            <div class="range-number" ng-bind="data3.volume"></div>
+            <span class="range-number-descript">Horas</span>
+          <div class="btn-container">
+            <div ng-class="{ active:tabs.tab === 2 }" class="btn-back-container"  ng-click="tabs.selectTab(2)"><a class="btn-back">Atrás</a></div>
+            <div ng-class="{ active:tabs.tab === 4 }"class="btn-next-container" ng-click="tabs.selectTab(4)"><a  class="btn-next">Siguiente</a></div>
+          </div>
+          </div>
+
+          <div ng-show="tabs.tab === 4">
+            <i class="img-slider-4 expandOpen"></i>
+            <div class="margin-bottom"><span class="text-legend">Horas Streaming Video</span></div>
+            <div class="item range">
+              <input type="range" name="volume" min="0" max="100" ng-model="data4.volume" ng-change="sumaChanged()">
+            </div>
+            <div class="range-number" ng-bind="data4.volume"></div>
+            <span class="range-number-descript">Horas</span>
+            <div class="btn-container">
+              <div ng-class="{ active:tabs.tab === 3 }" class="btn-back-container" ng-click="tabs.selectTab(3)"><a  class="btn-back">Atrás</a></div>
+              <div ng-class="{ active:tabs.tab === 5 }" class="btn-next-container" ng-click="tabs.selectTab(5)"><a  class="btn-next">Siguiente</a></div>
+            </div>
+          </div>
+
+          <div ng-show="tabs.tab === 5">
+            <i class="img-slider-5 expandOpen"></i>
+            <div class="margin-bottom"><span class="text-legend">Correos electrónicos</span></div>
+            <div class="item range">
+              <input type="range" name="hrs-per-wk" min="0" max="1000"  ng-change="sumaChanged()" ng-model="data5.volume">
+            </div>
+            <div class="range-number" ng-bind="data5.volume"></div>
+            <span class="range-number-descript">Correos</span>
+          <div class="btn-container">
+            <div ng-class="{ active:tabs.tab === 4 }" class="btn-back-container" ng-click="tabs.selectTab(4)"><a  class="btn-back">Atrás</a></div>
+            <div ng-class="{ active:tabs.tab === 6 }" class="btn-next-container" ng-click="tabs.selectTab(6)"><a  class="btn-next">Siguiente</a></div>
+          </div>
+          </div>
+
+          <div ng-show="tabs.tab === 6">
+            <i class="img-slider-6 expandOpen"></i>
+            <div class="margin-bottom"><span class="text-legend">Horas navegación</span></div>
+            <div class="item range">
+              <input type="range" name="volume" min="0" max="300" value="3" ng-change="sumaChanged()"  ng-model="data6.volume">
+            </div>
+            <div class="range-number" ng-bind="data6.volume"></div>
+            <span class="range-number-descript">Horas</span>
+          <div class="btn-container">
+            <div ng-class="{ active:tabs.tab === 5 }" class="btn-back-container" ng-click="tabs.selectTab(5)"><a class="btn-back">Atrás</a></div>
+            <div ng-class="{ active:tabs.tab === 7 }"class="btn-next-container" ng-click="tabs.selectTab(7)"><a class="btn-next">Siguiente</a></div>
+          </div>
+          </div>
+
+          <div ng-show="tabs.tab === 7">
+            <i class="img-slider-7 bigEntrance"></i>
+            <div class="margin-bottom"><span class="text-legend">Apps Descargadas</span></div>
+            <div class="item range height" style="height: 37px">
+              <input type="range" name="volume" min="0" max="30" value="0" ng-change="sumaChanged()" ng-model="data7.volume">
+            </div>
+            <div class="range-number" ng-bind="data7.volume"></div>
+            <span class="range-number-descript">Apps</span>
+          <div class="btn-container">
+            <div ng-class="{ active:tabs.tab === 6 }" class="btn-back-container" ng-click="tabs.selectTab(6)"><a class="btn-back">Atrás</a></div>
+          </div>
+          </div>
+            </div>
+        </ion-list>
+
+
+        <div class="calculator-div">
+          <div class="calculator-block">
+            <div class="consum-monthly">TU CONSUMO <span style="font-weight: 900;
+    font-size: 20px;">MENSUAL</span></div>
+          </div>
+
+          <div class="quantity-gigas">
+            <span id="total-gigas"><div ng-bind="suma"></div></span>
+            <span class="unit-storage">GB</span>
+          </div>
+        </div>
+        <div class="activate-now">¡Activate ya!</div>
+      </div>
+
+      <!--<button class="button" ng-click="toIntro()">atras</button>-->
+  </ion-content>
+</ion-view>
